@@ -5,3 +5,5 @@ declare namespace BwmApi {
     detail: string;
   }
 }
+
+declare var Stripe:any;

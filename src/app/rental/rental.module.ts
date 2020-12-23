@@ -24,6 +24,7 @@ import { RentalEditComponent } from './rental-edit/rental-edit.component';
 import { RentalGuard } from '../auth/shared/rental.guard';
 import { EditableModule } from '../shared/modules/editable/editable.module';
 import { ImageUploadModule } from '../shared/modules/image-upload/image-upload.module';
+import {PaymentModule} from '../payment/payment.module';
 
 const routes: Routes = [
   {
@@ -65,7 +66,8 @@ const routes: Routes = [
     SharedRentalModule,
     EditableModule,
     NgxDaterangepickerMd.forRoot(),
-    NgxSmartModalModule.forChild()
+    NgxSmartModalModule.forChild(),
+    PaymentModule
   ]
 })
 export class RentalModule {}
