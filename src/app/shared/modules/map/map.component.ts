@@ -16,7 +16,7 @@ import { Subject } from 'rxjs';
 export class MapComponent implements OnInit, OnDestroy {
 
   private map: any;
-  public readonly API_KEY = 'Rukxk4n6MVk8oILY0HUJAmAAvAiMM1XJ';
+  public readonly API_KEY = 'Ts6oljIS5JMn7ZzqmRhcVjb8pcYln8m7';
 
   @Input('location') location: string;
   @Input('mapNotifier') mapNotifier: Subject<string>;
