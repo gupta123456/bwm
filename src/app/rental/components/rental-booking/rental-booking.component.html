@@ -66,7 +66,7 @@
     <!-- Total Price -->
     <p>Price: <em>${{newBooking.price}}</em></p>
 
-    <bwm-payment></bwm-payment>
+    <bwm-payment (paymentConfirmed)='onPaymentConfirmed($event)'></bwm-payment>
 
     <p>Do you confirm booking for selected days?</p>
   </div>

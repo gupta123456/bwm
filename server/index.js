@@ -11,7 +11,7 @@ const rentalRoutes = require('./routes/rentals');
 const usersRoutes = require('./routes/users');
 const bookingRoutes = require('./routes/bookings');
 const imageUploadRoutes = require('./routes/image-upload');
-
+// const reviewRoutes = require('./routes/review');
 const { onlyAuthUser } = require('./controllers/users');
 
 // models
@@ -45,6 +45,7 @@ app.use('/api/v1/rentals', rentalRoutes);
 app.use('/api/v1/users', usersRoutes);
 app.use('/api/v1/bookings', bookingRoutes);
 app.use('/api/v1/image-upload', imageUploadRoutes);
+// app.use('/api/v1/reviews',reviewRoutes);
 
 
 if (process.env.NODE_ENV === 'production') {

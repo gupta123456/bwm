@@ -38,6 +38,7 @@ export class RentalBookingComponent implements OnInit {
       .subscribe(bookings => {
         bookings.forEach(booking => this.addBookedOutDates(booking.startAt, booking.endAt));
       });
+      this.newBooking = new Booking();
   }
 
   reservePlace() {
@@ -81,6 +82,10 @@ export class RentalBookingComponent implements OnInit {
 
   openConfirmationModal() {
     this.modal.open();
+  }
+
+  onPaymentConfirmed(paymentToken: any) {
+    this.newBooking.paymentToken = paymentToken;
   }
 
   private addBookedOutDates(startAt: string, endAt: string) {

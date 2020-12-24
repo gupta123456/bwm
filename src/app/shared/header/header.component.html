@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <a class="navbar-brand" routerLink="/">BookWithMe</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,14 +19,14 @@
     </div>
     <ul class="navbar-nav">
       <li *ngIf="isAuthenticated" class="nav-item active">
-        <div class="nav-link">Hello {{username}}!</div>
+        <div class="nav-link color">Hello {{username}}!</div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link color" routerLink="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <ng-container *ngIf="isAuthenticated else notAuthMenu">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle color" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Manage
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -41,7 +41,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a (click)="logout()" class="nav-link">Logout</a>
+          <a (click)="logout()" class="nav-link color">Logout</a>
         </li>
       </ng-container>
       <ng-template #notAuthMenu>
