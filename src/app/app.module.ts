@@ -13,6 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { TokenInterceptor } from './auth/shared/token.interceptor';
 import { ManageModule } from './manage/manage.module';
+import {UserModule} from './user/user.module';
 // root module
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ManageModule } from './manage/manage.module';
     ManageModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    UserModule
   ],
   providers: [
     {

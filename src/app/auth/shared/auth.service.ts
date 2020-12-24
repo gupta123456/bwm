@@ -40,7 +40,7 @@ export class AuthService {
       .pipe(catchError((resError: HttpErrorResponse) =>
         throwError(exctractApiError(resError))
       )
-    );
+      );
   }
 
   // /api/v1/users/login
@@ -55,7 +55,8 @@ export class AuthService {
         catchError((resError: HttpErrorResponse) =>
           throwError(exctractApiError(resError))
         )
-    ); }
+      );
+  }
 
   logout() {
     localStorage.removeItem('bwm_auth_token');
@@ -97,5 +98,9 @@ export class AuthService {
 
   private get expiration() {
     return moment.unix(this.decodedToken.exp);
+  }
+
+  getUserId(): string {
+    return this.decodedToken.userId;
   }
 }

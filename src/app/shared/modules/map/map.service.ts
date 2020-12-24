@@ -48,13 +48,18 @@ export class MapService {
   }
 
   createMap(options) {
-    return tt.map({
+    const map = tt.map({
       key: options.apiKey,
       container: 'bwm-map',
       style: 'tomtom://vector/1/basic-main',
       zoom: 15,
-      scrollZoom: false
+      scrollZoom: false,
+      dragPan: true
     });
+ 
+    map.addControl(new tt.FullscreenControl());
+    map.addControl(new tt.NavigationControl());
+    return map;
   }
 
   initMap(map: any, position: GeoPosition) {
