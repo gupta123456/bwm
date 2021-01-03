@@ -85,6 +85,7 @@ export class RentalBookingComponent implements OnInit {
   }
 
   onPaymentConfirmed(paymentToken: any) {
+    console.log(paymentToken);
     this.newBooking.paymentToken = paymentToken;
   }
 

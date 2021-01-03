@@ -18,9 +18,11 @@ export class UserDetailComponent implements OnInit {
 
   getUser() {
     const userId = this.auth.getUserId();
+    console.log(userId);
 
     this.userService.getUser(userId).subscribe((user) => {
       this.user = user;
+      console.log(this.user);
     }, (err) => {
 
     })

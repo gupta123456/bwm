@@ -14,11 +14,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './auth/shared/token.interceptor';
 import { ManageModule } from './manage/manage.module';
 import {UserModule} from './user/user.module';
+import { ReviewComponent } from './review/review.component';
 // root module
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,

@@ -33,17 +33,18 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit() {
     this.cardNumber = this.elements.create('cardNumber', { style });
-    this.cardNumber.mount(this.cardNumRef.nativeElement);
-
     this.cardExp = this.elements.create('cardExpiry', { style });
-    this.cardExp.mount(this.cardExpRef.nativeElement);
-
     this.cardCvc = this.elements.create('cardCvc', { style });
-    this.cardCvc.mount(this.cardCvcRef.nativeElement);
 
     this.cardNumber.addEventListener('change', this.onChange);
     this.cardExp.addEventListener('change', this.onChange);
     this.cardCvc.addEventListener('change', this.onChange);
+  }
+
+  ngAfterViewInit() {
+    this.cardNumber.mount(this.cardNumRef.nativeElement);
+    this.cardExp.mount(this.cardExpRef.nativeElement);
+    this.cardCvc.mount(this.cardCvcRef.nativeElement);
   }
 
   ngOnDestroy() {
@@ -65,15 +66,18 @@ export class PaymentComponent implements OnInit {
   }
 
   async onSubmit() {
+    console.log(this.cardNumber);
     this.isValidatingCard = true;
     const { token, error } = await this.stripe.createToken(this.cardNumber);
 
     this.isValidatingCard = false;
-
+    debugger
     if (error) {
       console.error(error);
     } else {
       this.token = token;
+      console.log(this.token);
+      
       this.paymentConfirmed.next(token);
     }
   }

@@ -101,6 +101,7 @@ export class AuthService {
   }
 
   getUserId(): string {
-    return this.decodedToken.userId;
+    console.log(this.decodedToken)
+    return this.decodedToken['sub'];
   }
 }
