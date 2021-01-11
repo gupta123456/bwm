@@ -6,30 +6,15 @@
   <ng-container *ngIf="isAuth">
     <form>
       <label>Dates</label>
-      <input 
-        type="text" 
-        ngxDaterangepickerMd
-        name="daterange" 
-        [isInvalidDate]="checkIfDateIsInvalid"
-        [locale]="locale"
-        [(ngModel)]="calendar" 
-        (datesUpdated)="updateBookingDates($event)"
-        class="form-control"/>
+      <input type="text" ngxDaterangepickerMd name="daterange" [isInvalidDate]="checkIfDateIsInvalid" [locale]="locale"
+        [(ngModel)]="calendar" (datesUpdated)="updateBookingDates($event)" class="form-control" />
       <div class="form-group">
         <label for="guests">Guests</label>
         <!-- TODO: bind to newBooking.guests -->
-        <input 
-          [(ngModel)]="newBooking.guests"
-          min="1"
-          type="number"
-          class="form-control"
-          id="guests"
-          name="guests">
+        <input [(ngModel)]="newBooking.guests" min="1" type="number" class="form-control" id="guests" name="guests">
       </div>
     </form>
-    <button 
-      (click)="openConfirmationModal()"
-      [disabled]="!canOpenConfirmation"
+    <button (click)="openConfirmationModal()" [disabled]="!canOpenConfirmation"
       class="btn btn-danger btn-confirm btn-block">Reserve place now</button>
     <hr>
   </ng-container>
@@ -47,14 +32,10 @@
 
 <ngx-smart-modal #confirmationModal identifier="confirmationModal">
   <div class="modal-header">
-    <h4 class="modal-title">Confirm Booking 
+    <h4 class="modal-title">Confirm Booking
       <p>{{timeService.format(newBooking.startAt)}} to {{timeService.format(newBooking.endAt)}}</p>
     </h4>
-    <button
-      type="button"
-      class="close"
-      aria-label="Close"
-      (click)="confirmationModal.close()">
+    <button type="button" class="close" aria-label="Close" (click)="confirmationModal.close()">
     </button>
   </div>
   <div class="modal-body">
@@ -76,14 +57,9 @@
     </p>
   </div>
   <div class="modal-footer">
-    <button 
-      (click)="reservePlace()"
-      type="button" 
+    <button [disabled]="!newBooking.paymentToken" (click)="reservePlace()" type="button"
       class="btn bwm-btn-main">Confirm</button>
-    <button
-      type="button"
-      class="btn"
-      (click)="confirmationModal.close()">Close
+    <button type="button" class="btn" (click)="confirmationModal.close()">Close
     </button>
   </div>
 </ngx-smart-modal>

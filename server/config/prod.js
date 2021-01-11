@@ -3,5 +3,6 @@ module.exports = {
   JWT_SECRET: process.env.JWT_SECRET,
   CLOUDINARY_NAME: 'dltwobcyu',
   CLOUDINARY_KEY: '145719238317824',
-  CLOUDINARY_SECRET: 'PzLkvdowWPianMHUrrSPaMDZT'
+  CLOUDINARY_SECRET: 'PzLkvdowWPianMHUrrSPaMDZT',
+  STRIPE_SK: 'pk_test_JixX22raoOQ5BjGOdwYKsMSp00rHGQcczR'
 }
