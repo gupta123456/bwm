@@ -2,9 +2,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const config = require('./config');
+// const config = require('./config');
 const { provideErrorHandler } = require('./middlewares');
 const path = require('path');
+const config = require('./config/dev');
 
 // routes
 const rentalRoutes = require('./routes/rentals');
@@ -23,7 +24,7 @@ require('./models/cloudinary-image');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-mongoose.connect('mongodb+srv://testtest:demo@cluster0.omdcp.mongodb.net/test', {
+mongoose.connect(config.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true
