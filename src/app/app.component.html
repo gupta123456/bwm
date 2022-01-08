@@ -1,11 +1,6 @@
+<bwm-header [isAuthenticated]="auth.isAuthenticated" [username]="auth.username" [logout]="logout">
+</bwm-header>
 
-<bwm-header
-  [isAuthenticated]="auth.isAuthenticated"
-  [username]="auth.username"
-  [logout]="logout">  
-</bwm-header
->
-
-<div class="container pt-5">
-  <router-outlet></router-outlet>
+<div class="home pt-5">
+    <router-outlet></router-outlet>
 </div>
