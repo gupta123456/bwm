@@ -3,14 +3,15 @@
         <div class="col-sm-8">
             <h1>{{user.username}}</h1>
         </div>
-        <div class="col-sm-4 revenue"><h1>Revenue: $100</h1></div>
+        <div class="col-sm-4 revenue">
+            <h1>Revenue: $100</h1>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-3">
             <!--left col-->
             <div class="text-center">
-                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail"
-                    alt="avatar">
+                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
                 <h6>Upload a different photo...</h6>
                 <input type="file" class="text-center center-block file-upload">
             </div>
@@ -24,9 +25,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Social Media</div>
                 <div class="panel-body">
-                    <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i
-                        class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i
-                        class="fa fa-google-plus fa-2x"></i>
+                    <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
                 </div>
             </div>
         </div>
@@ -45,8 +44,7 @@
                                 <label for="username">
                                     <h4>{{user.username}}</h4>
                                 </label>
-                                <input [(ngModel)]="user.username" type="text" class="form-control" name="username" id="username"
-                                    placeholder="first name" title="enter your first name if any.">
+                                <input [(ngModel)]="user.username" type="text" class="form-control" name="username" id="username" placeholder="first name" title="enter your first name if any.">
                             </div>
                         </div>
                         <div class="form-group">
@@ -54,8 +52,7 @@
                                 <label for="email">
                                     <h4>{{user.email}}</h4>
                                 </label>
-                                <input [(ngModel)]="user.email" type="email" class="form-control" name="email" id="email"
-                                    placeholder="you@email.com" title="enter your email.">
+                                <input [(ngModel)]="user.email" type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
                             </div>
                         </div>
                         <div class="form-group">
@@ -77,8 +74,7 @@
                                 <label for="option1">
                                     <h4>Option1</h4>
                                 </label>
-                                <input type="text" class="form-control" name="option1" id="option1"
-                                    placeholder="first name" title="option not decided yet">
+                                <input type="text" class="form-control" name="option1" id="option1" placeholder="first name" title="option not decided yet">
                             </div>
                         </div>
                         <div class="form-group">
@@ -86,8 +82,7 @@
                                 <label for="option2">
                                     <h4>Option2</h4>
                                 </label>
-                                <input type="text" class="form-control" name="option2" id="option2"
-                                    placeholder="last name" title="option not decided yet.">
+                                <input type="text" class="form-control" name="option2" id="option2" placeholder="last name" title="option not decided yet.">
                             </div>
                         </div>
                         <div class="form-group">

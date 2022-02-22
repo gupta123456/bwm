@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { forbiddenEmailValidator, sameAsValidator } from '../../shared/validators/functions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'bwm-login',
@@ -21,7 +22,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private auth: AuthService) { }
+    private auth: AuthService,
+    private service: NgxSpinnerService
+  ) { }
 
   ngOnInit() {
     this.initForm();
@@ -30,11 +33,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   login() {
     if (this.loginForm.invalid) { return; }
-
     this.errors = [];
-    return this.auth
-      .login(this.loginForm.value)
+    this.service.show();
+    return this.auth.login(this.loginForm.value)
       .subscribe((_: string) => {
+        this.service.hide();
         if (this.auth.redirectUrl) {
           this.router.navigate([this.auth.redirectUrl]);
           this.auth.redirectUrl = null;
@@ -42,6 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.router.navigate(['/rentals']);
         }
       }, (errors: BwmApi.Error[]) => {
+        this.service.hide();
         this.errors = errors;
       });
   }
@@ -53,7 +57,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.messageTimeout = window.setTimeout(() => {
         this.router.navigate([], {
           replaceUrl: true,
-          queryParams: {message: null},
+          queryParams: { message: null },
           queryParamsHandling: 'merge'
         });
 
