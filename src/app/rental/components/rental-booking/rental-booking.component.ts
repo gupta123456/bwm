@@ -6,7 +6,7 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 import { TimeService } from 'src/app/shared/services/time.service';
 import { BookingService } from 'src/app/booking/shared/booking.service';
 import { ToastrService } from 'ngx-toastr';
-
+import {NgxSpinnerService} from 'ngx-spinner';
 @Component({
   selector: 'bwm-rental-booking',
   templateUrl: './rental-booking.component.html',
@@ -29,13 +29,17 @@ export class RentalBookingComponent implements OnInit {
     private toastr: ToastrService,
     private bookingService: BookingService,
     public timeService: TimeService,
-    public modalService: NgxSmartModalService) { }
+    public modalService: NgxSmartModalService,
+    private service:NgxSpinnerService
+    ) { }
 
   ngOnInit() {
     this.initBooking();
+    this.service.show();
     this.bookingService
       .getBookings(this.rental._id)
       .subscribe(bookings => {
+        this.service.hide();
         bookings.forEach(booking => this.addBookedOutDates(booking.startAt, booking.endAt));
       });
       this.newBooking = new Booking();
@@ -44,9 +48,11 @@ export class RentalBookingComponent implements OnInit {
   reservePlace() {
     this.newBooking.rental = {...this.rental};
     this.errors = [];
+    this.service.show();
     this.bookingService
       .createBooking(this.newBooking)
       .subscribe((savedBooking) => {
+        this.service.hide();
         this.toastr.success('Booking has been created!', 'Booking',
           {timeOut: 3000, closeButton: true});
         this.addBookedOutDates(savedBooking.startAt, savedBooking.endAt);

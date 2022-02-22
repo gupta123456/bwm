@@ -13,30 +13,30 @@
             <li *ngIf="isAuthenticated" class="nav-item active">
                 <div class="nav-link color">Hello {{username}}!</div>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item active" style="cursor: pointer">
                 <a class="nav-link color" routerLink="/">Home <span class="sr-only">(current)</span></a>
-            </li>
+            </li>J
             <ng-container *ngIf="isAuthenticated else notAuthMenu">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle color" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Manage
           </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" routerLink="/users/profile">Profile</a>
-                        <a class="dropdown-item" routerLink="/rentals/new">New Rental</a>
-                        <a class="dropdown-item" routerLink="manage/rentals">My Rentals</a>
-                        <a class="dropdown-item" routerLink="manage/bookings">My Bookings</a>
+                        <a class="dropdown-item" routerLink="/users/profile" style="cursor: pointer">Profile</a>
+                        <a class="dropdown-item" routerLink="/rentals/new" style="cursor: pointer">New Rental</a>
+                        <a class="dropdown-item" routerLink="manage/rentals" style="cursor: pointer">My Rentals</a>
+                        <a class="dropdown-item" routerLink="manage/bookings" style="cursor: pointer">My Bookings</a>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="cursor: pointer">
                     <a (click)="logout()" class="nav-link color">Logout</a>
                 </li>
             </ng-container>
             <ng-template #notAuthMenu>
-                <li class="nav-item">
+                <li class="nav-item" style="cursor: pointer">
                     <a class="nav-link color" routerLink="/login">Login</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="cursor: pointer">
                     <a class="nav-link color" routerLink="/register">Register</a>
                 </li>
             </ng-template>
